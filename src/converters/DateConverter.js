@@ -3,15 +3,12 @@ import Converter from './Converter';
 import ParseError from './ParseError';
 import moment from 'moment';
 
-// only load the modules
-import '../external_modules/moment-jdateformatparser';
-
 export const ERROR_CODE = 'error.parse.date';
 
 export default class DateConverter extends Converter {
   constructor(format = '', locale) {
     super();
-    this.momentFormat = moment().toMomentFormatString(format);
+    this.momentFormat = moment().format(format);
     this.locale = locale;
   }
 
